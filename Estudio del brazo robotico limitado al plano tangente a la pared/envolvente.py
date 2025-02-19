@@ -34,7 +34,7 @@ def envolvente_eslabon1(l1, num_puntos=300):
 def envolvente_eslabon2(l1, l2, num_puntos=100):
     """
     Funcion:
-    - Calcular la envolvente del segundo eslabón del brazo robótico
+    - Calcular la envolvente del segundo eslabón del brazo robotico
 
     Input
     - l1: longitud del primer eslabon
@@ -88,7 +88,7 @@ def envolvente_eslabon3(l1, l2, l3, num_puntos=5000):
     return x, y
 
 def plot_envolventes_independientes(l1, l2, l3):
-    # Obtener las coordenadas para cada eslabón
+    # Obtener las coordenadas para cada eslabon
     x1, y1 = envolvente_eslabon1(l1)
     x2, y2 = envolvente_eslabon2(l1, l2)
     x3, y3 = envolvente_eslabon3(l1, l2, l3)
@@ -96,13 +96,13 @@ def plot_envolventes_independientes(l1, l2, l3):
     # Graficar
     plt.figure(figsize=(8,8))
     
-    # Eslabón 1: se grafica como línea continua (círculo)
+    # Eslabon 1: se grafica como linea continua (circulo)
     plt.plot(x1, y1, label='Eslabón 1', color='red', linewidth=2)
     
-    # Eslabón 2: se grafica con puntos pequeños
+    # Eslabon 2: se grafica con puntos pequeños
     plt.scatter(x2, y2, s=1, label='Eslabón 2', color='blue', alpha=0.5)
     
-    # Eslabón 3: se grafica con puntos pequeños
+    # Eslabon 3: se grafica con puntos pequeños
     plt.scatter(x3, y3, s=1, label='Eslabón 3', color='green', alpha=0.5)
     
     plt.xlabel('x')
