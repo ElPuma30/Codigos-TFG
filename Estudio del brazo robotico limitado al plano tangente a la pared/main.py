@@ -29,9 +29,9 @@ l3 = 0.5
 
 
 #------ LLAMADA DE LAS FUNCIONES ------#
-# Función método directo
+# Funcion método directo
 calculo_cinematica_directa(theta, beta, alpha, l1, l2, l3)  
-# Función método idirecto
+# Funcion método idirecto
 calculo_cinematica_inversa(x_punto, y_punto, alpha, l1, l2, l3)
 # Funcion de la envolvente
 plot_envolventes_independientes(l1, l2, l3)
