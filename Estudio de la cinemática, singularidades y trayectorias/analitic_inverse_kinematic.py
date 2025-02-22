@@ -1,7 +1,7 @@
 """
 ---------------------------------------------------------------------------------
 ESTE CODIGO LO USAREMOS PARA CALCULAR LA CINEMATICA DIRECTA E INVERSA (ANALITICA)
-Codigo de la documentacion de Hodei https://github.com/japersik/UR_kinematics
+Codigo de la documentacion https://github.com/japersik/UR_kinematics
 ---------------------------------------------------------------------------------
 """
 import numpy as np
