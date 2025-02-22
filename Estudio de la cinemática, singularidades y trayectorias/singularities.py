@@ -11,11 +11,11 @@ def check_singularity_type(DH_matrix, thetas):
     Funcion:
     - Ver si hay o no singularidad en la configuracion actual
 
-    Input
+    Input:
     - DH_params: matriz de los parametros de DH
     - thetas: los angulos que obtenemos con la cinematica inversa
 
-    Parámetros:
+    Parametros:
     - J: matriz jacobiana
     - det(J): determinante de la matriz jacobiana
     """
