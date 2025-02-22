@@ -4,13 +4,7 @@ ESTE CODIGO LO USAREMOS PARA CALCULAR LA CINEMATICA DIRECTA (PARTE NUMERICO)
 ----------------------------------------------------------------------------
 """
 import numpy as np
-import matplotlib.pyplot as plt
-from itertools import product
-from math import pi
-from scipy.spatial import ConvexHull
-from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 from DH_transform import compute_transform_DH
-from constants import *
 
 def compute_forward_kinematic(DH_params, theta_input):
     """
