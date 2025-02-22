@@ -11,7 +11,7 @@ def compute_forward_kinematic(DH_params, theta_input):
     Funcion:
     - Obtener la matriz de transformacion homogenea y las posiciones
 
-    Input
+    Input:
     - DH_params: matriz de los parametros de DH
     - theta_input: conjunto de angulos que las articulaciones deben tomar
 
@@ -44,7 +44,7 @@ def compute_the_final_position_and_orientation(T):
     Funcion:
     - Obtener la ultima matriz de rotacion y las posiciones finales
 
-    Input
+    Input:
     - T: lista de matrices de transformacion acumuladas
 
     Parámetros:
