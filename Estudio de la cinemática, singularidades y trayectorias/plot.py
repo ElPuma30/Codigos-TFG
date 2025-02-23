@@ -54,13 +54,7 @@ def plot_robot(positions_list, labels, markers, colors=None, alphas=None, desire
     plt.show()
 
 def plot_joint_space_2D(trayectoria, label):
-    """
-    Dibuja la trayectoria en el espacio de los ángulos (cada ángulo en función del waypoint).
-    
-    Parámetros:
-      - trayectoria: array de forma (n_waypoints, n_joints)
-    """
-    trayectoria = np.array(trayectoria)  # Asegurarse de que es un array de NumPy
+    trayectoria = np.array(trayectoria)  
     n_waypoints, n_joints = trayectoria.shape
     
     plt.figure(figsize=(10, 6))
