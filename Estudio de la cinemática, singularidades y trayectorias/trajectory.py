@@ -28,14 +28,14 @@ def plot_and_verify_trajectories(dh_params, num_steps, best_by_start, global_bes
             chain = best_by_start[key][0]
             candidate_chains.append(chain)
             
-            # Calcula la posiciones SOLO de los waypoints (sin interpolar) para la gráfica 3D
+            # Calcula la posiciones SOLO de los waypoints (sin interpolar) para la grafica 3D
             chain_positions = []
             for theta_input in chain:
                 T, _ = compute_forward_kinematic(dh_params, theta_input)
                 pos, _ = compute_the_final_position_and_orientation(T)
                 chain_positions.append(pos)
             
-            # Calcular la interpolación para la gráfica 2D
+            # Calcular la interpolacion para la grafica 2D
             interpolated_chain = interpolate_trajectory(chain, num_steps)
             
             # Guardar SOLO los waypoints en la lista de posiciones 3D
@@ -55,7 +55,7 @@ def plot_and_verify_trajectories(dh_params, num_steps, best_by_start, global_bes
             desired_pos=end_effector_positions_all[-1][-1],   
         )
         
-        # Verificación de singularidades en cada cadena candidata
+        # Verificacion de singularidades en cada cadena candidata
         for idx, positions in enumerate(end_effector_positions_all):
             print(f"\nVerificando singularidades para Chain {candidate_keys[idx]+1}:")
             # Reconstruimos la trayectoria interpolada (joint space) para verificar
@@ -67,7 +67,7 @@ def plot_and_verify_trajectories(dh_params, num_steps, best_by_start, global_bes
             else:
                 print("No se detectaron singularidades en la trayectoria interpolada.")
         
-        # Simulación de movimiento y cálculo del Jacobiano para cada cadena
+        # Simulacion de movimiento y calculo del Jacobiano para cada cadena
         for chain_idx, chain in enumerate(candidate_chains):
             print(f"\nSimulación para Chain {candidate_keys[chain_idx]+1}:")
             interpolated_chain = interpolate_trajectory(chain, num_steps)
@@ -82,7 +82,7 @@ def plot_and_verify_trajectories(dh_params, num_steps, best_by_start, global_bes
                 print(f"    Determinante del Jacobiano: {det_J:.6f}\n")    
     
     else:
-        # Si no se grafican todas, se elige una sola cadena (opción manual u óptima)
+        # Si no se grafican todas, se elige una sola cadena (opción manual u optima)
         opcion = None  # Trayectoria a usar (None = optima), esto es a modo de ejemplo
         if opcion in best_by_start:
             cadena_elegida = best_by_start[opcion][0]
@@ -98,7 +98,7 @@ def plot_and_verify_trajectories(dh_params, num_steps, best_by_start, global_bes
             pos, _ = compute_the_final_position_and_orientation(T)
             chain_positions.append(pos)
         
-        # Calcular la interpolación para la gráfica 2D
+        # Calcular la interpolacion para la grafica 2D
         interpolated_trajectory = interpolate_trajectory(cadena_elegida, num_steps)
 
         plot_robot(
@@ -111,7 +111,7 @@ def plot_and_verify_trajectories(dh_params, num_steps, best_by_start, global_bes
 
         plot_joint_space_2D(interpolated_trajectory, "Trayectoria Elegida")
 
-        # Verificación de singularidades en la trayectoria elegida
+        # Verificacion de singularidades en la trayectoria elegida
         print("\n--- Verificación de Singularidades en la Trayectoria Elegida ---")
         singular_points = check_trajectory_singularity(interpolated_trajectory, dh_params)
         if singular_points:
@@ -119,7 +119,7 @@ def plot_and_verify_trajectories(dh_params, num_steps, best_by_start, global_bes
         else:
             print("No se detectaron singularidades en la trayectoria interpolada.")
 
-        # Simulación de Movimiento y Cálculo del Jacobiano para la cadena elegida
+        # Simulacion de movimiento y calculo del Jacobiano para la cadena elegida
         print("\n--- Simulación de Movimiento y Cálculo del Jacobiano ---")
         for idx, theta_input in enumerate(interpolated_trajectory):
             T, _ = compute_forward_kinematic(dh_params, theta_input)
