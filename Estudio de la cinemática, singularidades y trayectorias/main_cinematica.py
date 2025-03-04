@@ -73,10 +73,10 @@ print("\n2. Solucion cinematica inversa")
 IKS = inverse_kinematic_solution(dh_params, transform)
 IKS1 = np.array(IKS)
 num_solutions = IKS1.shape[1]
-# Extraemos cada solución en un formato similar a theta_wanted (6x1)
+# Extraemos cada solucion en un formato similar a theta_wanted (6x1)
 solutions_list = []
 for i in range(num_solutions):
-    # IKS[:, i] es la i-ésima solución de 6 elementos
+    # IKS[:, i] es la i-esima solucion de 6 elementos
     solution = IKS1[:, i].flatten()                                      # Convierte en array unidimensional
     solutions_list.append(solution)
 
@@ -86,10 +86,10 @@ for i in range(0, num_solutions, 3):
     end_index = min(i + 3, num_solutions)
     print(f"Soluciones {i+1} a {end_index}:")
     soluciones_a_imprimir = IKS[:, i:end_index]
-    # Transponer para que cada solución se muestre como una columna
+    # Transponer para que cada solucion se muestre como una columna
     print(soluciones_a_imprimir)
     print()
-# Filtrar soluciones únicas
+# Filtrar soluciones unicas
 print("\n3. Filtrar soluciones únicas")
 soluciones_unicas = filtrar_soluciones_unicas(IKS, tolerancia=tol)
 for idx, sol in enumerate(soluciones_unicas):
@@ -109,7 +109,7 @@ print("**  DETECCION DE LAS SINGULARIDADES (NUMERICO)   **")
 print("**                                               **")
 print("***************************************************")
 print("***************************************************")
-# Ahora 'solutions_list' contiene cada solución como un vector numpy de 6 elementos
+# Ahora 'solutions_list' contiene cada solucion como un vector numpy de 6 elementos
 num_solutions2 = len(theta_solutions)
 print(f"\nHay {num_solutions2} soluciones unicas:")
 for idx, sol in enumerate(theta_solutions):
@@ -123,7 +123,7 @@ print("**  DETECCION DE LAS SINGULARIDADES (ANALITICO)  **")
 print("**                                               **")
 print("***************************************************")
 print("***************************************************")
-# Ahora 'solutions_list' contiene cada solución como un vector numpy de 6 elementos
+# Ahora 'solutions_list' contiene cada solucion como un vector numpy de 6 elementos
 print(f"\nHay {len(soluciones_unicas)} soluciones unicas:")
 for idx, sol in enumerate(soluciones_unicas):
     print(f"\n> Solución {idx+1}:")
