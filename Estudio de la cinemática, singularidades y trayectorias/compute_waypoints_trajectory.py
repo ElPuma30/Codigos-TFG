@@ -23,7 +23,7 @@ def waypoint_to_transform(waypoint):
     - x,y,z: coordenadas del punto
     - roll, pitch, yaw: orientaciones del punto (rx, ry, rz)
     - desired_pos: array de las coordenadas
-    - desired_rot: matriz de rotación
+    - desired_rot: matriz de rotacion
 
     Retorna:
     - T: matriz de transformacion 
@@ -49,7 +49,7 @@ def get_analitic_solutions_for_trajectory(trayectoria, dh_params, tolerancia=1e-
     - theta_solution: soluciones analiticas
 
     Retorna:
-    - waypoint_solutions: lista de soluciones únicas
+    - waypoint_solutions: lista de soluciones unicas
     """
     waypoint_solutions = []
     # El bucle recorre cada waypoint de la trayectoria
@@ -78,22 +78,20 @@ def refine_solutions_numerically(cartesian_waypoints, solutions_per_waypoint, DH
     - desired_rot: matriz de rotacion
     
     Retorna:
-    - refined_solutions_list: lista (por waypoint) de listas de soluciones numéricas refinadas.
+    - refined_solutions_list: lista (por waypoint) de listas de soluciones numericas refinadas.
     """
     refined_solutions_list = []
     for i, waypoint in enumerate(cartesian_waypoints):
-        # Convertir el waypoint a su transformación deseada
+        # Convertir el waypoint a su transformacion deseada
         T_desired = waypoint_to_transform(waypoint)
         desired_pos = np.array(T_desired[:3, 3]).flatten()
         desired_rot = np.array(T_desired[:3, :3])
         
-        # Condiciones iniciales: todas las soluciones analíticas para este waypoint.
         initial_guesses = solutions_per_waypoint[i]
         
         refined_solutions = compute_inverse_kinematics(DH_params, desired_pos, desired_rot, initial_guesses)
         
-        # Si no se obtuvo ninguna solución refinada, se usa la solución analítica
-        # SE PUEDE ELIMINAR SI NO SE USA
+        # Si no se obtuvo ninguna solucion refinada, se usa la solucion analitica
         if not refined_solutions:
             print(f"Refinamiento numérico falló para el waypoint {i+1}. Se mantiene la solución analítica.")
             refined_solutions = initial_guesses
@@ -123,7 +121,7 @@ def write_waypoint_information(trayectoria, waypoint_solutions):
       - La información de cada waypoint
     """
     for i, waypoint in enumerate(trayectoria):
-        # Convertir el waypoint a su transformación deseada
+        # Convertir el waypoint a su transformacion deseada
         T_desired = waypoint_to_transform(waypoint)
         desired_pos = np.array(T_desired[:3, 3]).flatten()
         desired_rot = np.array(T_desired[:3, :3])
