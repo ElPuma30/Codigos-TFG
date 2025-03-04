@@ -43,7 +43,7 @@ def verificar_y_graficar_soluciones(Dh_params, theta_solutions, desired_pos, des
         print(f"- Matriz de orientacion obtenida:\n", final_rot)
         print(f"- Error de orientación: {rot_error:.6e}")
 
-        # Almacenar información de la solución
+        # Almacenar informacion de la solucion
         solutions_info.append({
             'index': idx,
             'theta_sol': theta_sol,
@@ -52,9 +52,9 @@ def verificar_y_graficar_soluciones(Dh_params, theta_solutions, desired_pos, des
             'rot_error': rot_error
         })
 
-    ##--- Control de graficación ---##
-    graficar_todas_las_soluciones = True                # Cambia a False para graficar solo una solución
-    solucion_elegida = 0                                # Indice de la solución a graficar (hay que poner una menos de la que queremos)
+    ##--- Control de graficacion ---##
+    graficar_todas_las_soluciones = True                # Cambia a False para graficar solo una solucion
+    solucion_elegida = 0                                # Indice de la solucion a graficar (hay que poner una menos de la que queremos)
 
     positions_list = []
     labels = []
@@ -71,7 +71,7 @@ def verificar_y_graficar_soluciones(Dh_params, theta_solutions, desired_pos, des
             colors.append(None)
             alphas.append(1.0)
     else:
-        # Graficar solo la solución elegida
+        # Graficar solo la solucion elegida
         if solucion_elegida < 0 or solucion_elegida >= len(solutions_info):
             print(f"\nÍndice de solución inválido. Por favor, elige un valor entre 0 y {len(solutions_info)-1}.")
         else:
@@ -82,7 +82,7 @@ def verificar_y_graficar_soluciones(Dh_params, theta_solutions, desired_pos, des
             colors.append(None)
             alphas.append(1.0)
 
-    # Graficar las soluciones y la posición deseada
+    # Graficar las soluciones y la posicion deseada
     plot_robot(positions_list, labels, markers, colors, alphas, desired_pos)
 
 """
