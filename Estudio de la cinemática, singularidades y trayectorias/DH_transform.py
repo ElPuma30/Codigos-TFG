@@ -14,7 +14,7 @@ def compute_transform_DH(DH_params, n, theta_input):
     - Generar una matriz de transformacion homogenea para cada eslabon a partir de los parámetros DH
 
     Input:
-    - DH_params: matriz con los parámetros de DH
+    - DH_params: matriz con los parametros de DH
     - n: representa los eslabones del brazo robotico
     - theta_input: conjunto de angulos que las articulaciones deben tomar
 
@@ -64,7 +64,7 @@ def compute_transform_DH(DH_params, n, theta_input):
 def transformation_matrix(R, t):
     """
     Funcion:
-    - Genera la matriz de transformación homogénea 4x4
+    - Genera la matriz de transformacion homogenea 4x4
 
     Input:
     - R: matriz de rotacion
